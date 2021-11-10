@@ -7,11 +7,15 @@ const Button = ({ href, onClick, children }) => {
     href ? (
       <Link href={href} passHref>
         <a>
-          <button onClick={onClick}>{children}</button>
+          <button className="bg-gray-400 px-4" onClick={onClick}>
+            {children}
+          </button>
         </a>
       </Link>
     ) : (
-      <button onClick={onClick}>{children}</button>
+      <button className="bg-gray-400 px-4" onClick={onClick}>
+        {children}
+      </button>
     )
   );
 };
