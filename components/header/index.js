@@ -2,15 +2,17 @@ import { useRouter } from 'next/router';
 import { useState, useRef, useEffect } from 'react';
 import Button from '../button';
 
+const menuItems = [
+  { text: 'Tchdet Discord', link: 'https://discord.gg/VQGw77dTeP' },
+  { text: 'My Profile', link: '/app/profile' },
+];
+
 const ProfileDropdown = () => {
   let menuRef = useRef(null);
   let dropdownRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClickEvent = (event) => {
-    if (menuRef.current && menuRef.current.contains(event.target)) {
-      event.stopPropagation();
-    }
     if (dropdownRef.current && dropdownRef.current.contains(event.target)) {
       setIsOpen(!isOpen);
     }
@@ -67,10 +69,20 @@ const ProfileDropdown = () => {
       </button>
       {isOpen && (
         <div
-          className='absolute top-10 right-0 w-40 h-56 bg-red-400 rounded flex flex-col items-center'
+          className='absolute top-10 right-0 p-4 w-44 h-56 bg-gray-100 rounded flex flex-col items-center shadow-md'
           ref={menuRef}
         >
-          <Button href='https://discord.gg/VQGw77dTeP'>Tchdet Discord</Button>
+          {menuItems.map((item, index) => {
+            return (
+              <Button
+                index={index}
+                href={item.link}
+                onClick={() => setIsOpen(false)}
+              >
+                {item.text}
+              </Button>
+            );
+          })}
         </div>
       )}
     </div>
