@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { useState, useRef, useEffect } from 'react';
 import Button from '../button';
+import Link from 'next/link';
 
 const menuItems = [
   { text: 'Tchdet Discord', link: 'https://discord.gg/VQGw77dTeP' },
@@ -96,11 +97,19 @@ const Header = () => {
 
   return path.includes('/app') ? (
     <header className='h-14 flex justify-between items-center px-5'>
-      <div>Logo</div>
+      <Link href='/app' passHref>
+        <a>Logo</a>
+      </Link>
+
       <ProfileDropdown />
     </header>
   ) : (
-    <div>External Header</div>
+    <div className='container h-14 flex justify-between items-center'>
+      <div>Logo</div>
+      <Button href='/sign-in' className='ml-4'>
+        Sign In
+      </Button>
+    </div>
   );
 };
 
