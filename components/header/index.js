@@ -76,7 +76,7 @@ const ProfileDropdown = () => {
           {menuItems.map((item, index) => {
             return (
               <Button
-                index={index}
+                key={index}
                 href={item.link}
                 onClick={() => setIsOpen(false)}
               >
