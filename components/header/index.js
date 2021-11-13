@@ -104,7 +104,7 @@ const Header = () => {
       <ProfileDropdown />
     </header>
   ) : (
-    <div className='container h-14 flex justify-between items-center'>
+    <div className='container h-14 flex justify-between items-center z-50'>
       <div>Logo</div>
       <Button href='/sign-in' className='ml-4'>
         Sign In

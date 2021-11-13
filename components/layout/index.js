@@ -6,10 +6,11 @@ import { useRouter } from 'next/router';
 const Layout = ({ children }) => {
   const router = useRouter();
   const internal = router.pathname.includes('/app');
+  const authPage = router.pathname.includes('/sign');
   return internal ? (
-    <div className="flex h-screen flex-col">
+    <div className='flex h-screen flex-col'>
       <Header />
-      <div className="flex h-full">
+      <div className='flex h-full'>
         <Sidebar />
         {children}
       </div>
@@ -18,7 +19,7 @@ const Layout = ({ children }) => {
     <>
       <Header />
       {children}
-      <Footer />
+      {!authPage && <Footer />}
     </>
   );
 };
