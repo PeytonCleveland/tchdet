@@ -139,8 +139,9 @@ const SignUp = () => {
         </div>
         <p className='absolute bottom-8 text-xs w-2/5 text-center'>
           By creating an account, you agree to the Terms of Service. For more
-          information about Tchdet's privacy practices, see the Tchdet Privacy
-          Statement. We'll occasionally send you account-related emails.
+          information about Tchdet&#39;s privacy practices, see the Tchdet
+          Privacy Statement. We&#39;ll occasionally send you account-related
+          emails.
         </p>
       </div>
     </div>
