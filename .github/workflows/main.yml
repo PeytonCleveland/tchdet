@@ -45,6 +45,8 @@ jobs:
           echo NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=${{ secrets.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID }} >> .env.local
           echo NEXT_PUBLIC_FIREBASE_APP_ID=${{ secrets.NEXT_PUBLIC_FIREBASE_APP_ID }} >> .env.local
           echo NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=${{ secrets.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID }} >> .env.local
+          echo ${{ secrets.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN }}
+          cat .env.local
       - run: yarn install --frozen-lockfile
       - run: yarn build
       
