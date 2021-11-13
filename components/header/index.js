@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import { useState, useRef, useEffect } from 'react';
 import Button from '../button';
 import Link from 'next/link';
+import { auth } from '../../auth/firebase';
 
 const menuItems = [
   { text: 'Tchdet Discord', link: 'https://discord.gg/VQGw77dTeP' },
@@ -12,6 +13,7 @@ const ProfileDropdown = () => {
   let menuRef = useRef(null);
   let dropdownRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
 
   const handleClickEvent = (event) => {
     if (dropdownRef.current && dropdownRef.current.contains(event.target)) {
@@ -25,6 +27,18 @@ const ProfileDropdown = () => {
     ) {
       setIsOpen(false);
     }
+  };
+
+  const signOut = () => {
+    auth
+      .signOut()
+      .then(() => {
+        console.log('signed out');
+        router.push('/');
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   useEffect(() => {
@@ -84,6 +98,7 @@ const ProfileDropdown = () => {
               </Button>
             );
           })}
+          <Button onClick={() => signOut()}>Sign Out</Button>
         </div>
       )}
     </div>
@@ -108,6 +123,9 @@ const Header = () => {
       <div>Logo</div>
       <Button href='/sign-in' className='ml-4'>
         Sign In
+      </Button>
+      <Button href='/sign-up' className='ml-4'>
+        Sign Up
       </Button>
     </div>
   );

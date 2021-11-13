@@ -1,23 +1,28 @@
 import { useRouter } from 'next/router';
 import { UserContext } from '../auth/context';
-import { useUserData } from '../auth/hooks';
-import { useContext, useEffect } from 'react';
+import { useEffect } from 'react';
+import { auth } from '../auth/firebase';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 const AuthProvider = ({ children }) => {
   const router = useRouter();
-  const userData = useUserData();
+  const [user, loading, error] = useAuthState(auth);
 
   useEffect(() => {
-    if (!userData.user && router.pathname.includes('/app')) {
-      router.push('/sign-in');
+    if (!loading) {
+      if (user == null && router.pathname.includes('/app')) {
+        console.log('redirecting to /app');
+        router.push('/sign-in');
+      }
+      if (user != null && !router.pathname.includes('/app')) {
+        console.log('redirecting to /app');
+        router.push('/app');
+      }
     }
-    if (userData.user && router.pathname.includes('/sign-in')) {
-      router.push('/app');
-    }
-  }, [userData]);
+  }, [user, loading]);
 
-  return (
-    <UserContext.Provider value={{ user: userData }}>
+  return loading ? null : (
+    <UserContext.Provider value={{ user: user }}>
       {children}
     </UserContext.Provider>
   );
