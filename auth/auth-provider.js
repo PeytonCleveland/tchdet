@@ -6,7 +6,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 
 const AuthProvider = ({ children }) => {
   const router = useRouter();
-  const [user, loading, error] = useAuthState(auth);
+  const [user, loading, error] = auth ? useAuthState(auth) : [null, true, null];
 
   useEffect(() => {
     if (!loading) {
