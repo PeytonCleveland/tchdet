@@ -11,7 +11,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     if (!loading) {
       if (user == null && router.pathname.includes('/app')) {
-        console.log('redirecting to /app');
+        console.log('redirecting from ', router.pathname, ' to /sign-in');
         router.push('/sign-in');
       }
       if (user != null && !router.pathname.includes('/app')) {

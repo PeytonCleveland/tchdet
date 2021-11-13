@@ -34,7 +34,7 @@ const ProfileDropdown = () => {
       .signOut()
       .then(() => {
         console.log('signed out');
-        router.push('/');
+        router.replace('/');
       })
       .catch((error) => {
         console.log(error);
@@ -111,7 +111,7 @@ const Header = () => {
   const path = router.pathname;
 
   return path.includes('/app') ? (
-    <header className='h-14 flex justify-between items-center px-5'>
+    <header className='h-14 flex justify-between items-center px-5 z-50'>
       <Link href='/app' passHref>
         <a>Logo</a>
       </Link>
