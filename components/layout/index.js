@@ -7,14 +7,21 @@ const Layout = ({ children }) => {
   const router = useRouter();
   const internal = router.pathname.includes('/app');
   const authPage = router.pathname.includes('/sign');
+  const onboarding = router.pathname.includes('/onboarding');
   return internal ? (
-    <div className='flex h-screen flex-col'>
-      <Header />
-      <div className='flex h-full'>
-        <Sidebar />
+    onboarding ? (
+      <div className='flex h-screen flex-col justify-between items-center'>
         {children}
       </div>
-    </div>
+    ) : (
+      <div className='flex h-screen flex-col'>
+        <Header />
+        <div className='flex h-full'>
+          <Sidebar />
+          {children}
+        </div>
+      </div>
+    )
   ) : (
     <>
       <Header />

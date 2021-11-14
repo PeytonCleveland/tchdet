@@ -15,7 +15,7 @@ const SignUp = () => {
     auth
       .createUserWithEmailAndPassword(email, password)
       .then(() => {
-        router.push('/app');
+        router.push('/app/onboarding');
       })
       .catch((error) => {
         console.log(error);

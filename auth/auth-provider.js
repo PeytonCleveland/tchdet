@@ -12,12 +12,17 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     if (!loading) {
       if (user == null && path.includes('/app')) {
-        console.log('redirecting from ', path, ' to /sign-in');
         router.replace('/sign-in');
       }
-      if (user != null && !path.includes('/app')) {
-        console.log('redirecting to /app');
+      if (
+        user != null &&
+        !path.includes('/app') &&
+        user.displayName != undefined
+      ) {
         router.push('/app');
+      }
+      if (user != null && user.displayName == undefined) {
+        router.replace('/app/onboarding');
       }
     }
   }, [user, loading, path]);
