@@ -64,7 +64,10 @@ const Button = ({ href, onClick, bold, children, color, size, variant }) => {
         </a>
       )
     ) : (
-      <button className='bg-gray-900 px-4' onClick={onClick}>
+      <button
+        className={variant === 'filled' ? filled : text}
+        onClick={onClick}
+      >
         {children}
       </button>
     )

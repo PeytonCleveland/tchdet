@@ -139,43 +139,76 @@ const Header = () => {
             Alpha v0.1.6
           </div>
           <div className='flex gap-3 items-center ml-8'>
-            {externalLinks.map((item, index) => {
-              return (
-                <Button
-                  key={index}
-                  href={item.link}
-                  variant='text'
-                  color={router.pathname.includes(item.link) ? 'blue' : 'white'}
-                >
-                  {item.text}
-                  {item.type === 'dropdown' && (
-                    <svg
-                      xmlns='http://www.w3.org/2000/svg'
-                      className='h-4 w-4 ml-1'
-                      fill='none'
-                      viewBox='0 0 24 24'
-                      stroke='currentColor'
-                      strokeWidth={1.5}
+            {path.includes('/sign') ? null : (
+              <>
+                {externalLinks.map((item, index) => {
+                  return (
+                    <Button
+                      key={index}
+                      href={item.link}
+                      variant='text'
+                      color={
+                        router.pathname.includes(item.link) ? 'blue' : 'white'
+                      }
                     >
-                      <path
-                        strokeLinecap='round'
-                        strokeLinejoin='round'
-                        d='M19 9l-7 7-7-7'
-                      />
-                    </svg>
-                  )}
-                </Button>
-              );
-            })}
+                      {item.text}
+                      {item.type === 'dropdown' && (
+                        <svg
+                          xmlns='http://www.w3.org/2000/svg'
+                          className='h-4 w-4 ml-1'
+                          fill='none'
+                          viewBox='0 0 24 24'
+                          stroke='currentColor'
+                          strokeWidth={1.5}
+                        >
+                          <path
+                            strokeLinecap='round'
+                            strokeLinejoin='round'
+                            d='M19 9l-7 7-7-7'
+                          />
+                        </svg>
+                      )}
+                    </Button>
+                  );
+                })}
+              </>
+            )}
           </div>
         </div>
         <div className='flex gap-6 items-center'>
-          <Button href='/sign-in' className='ml-4' variant='text' color='blue'>
-            Sign In
-          </Button>
-          <Button href='/sign-up' className='ml-4' color='white'>
-            Get Started
-          </Button>
+          {path.includes('/sign') ? (
+            <Button href='/' variant='text' color='white'>
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                className='h-5 w-5 mr-1'
+                fill='none'
+                viewBox='0 0 24 24'
+                stroke='currentColor'
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  d='M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z'
+                />
+              </svg>
+              Support
+            </Button>
+          ) : (
+            <>
+              <Button
+                href='/sign-in'
+                className='ml-4'
+                variant='text'
+                color='blue'
+              >
+                Sign In
+              </Button>
+              <Button href='/sign-up' className='ml-4' color='white'>
+                Get Started
+              </Button>
+            </>
+          )}
         </div>
       </div>
     </header>

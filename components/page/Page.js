@@ -1,8 +1,6 @@
 const Page = ({ children }) => {
   return (
-    <div className='w-screen min-h-screen pt-0 pb-8 bg-slate-900'>
-      {children}
-    </div>
+    <div className='w-screen min-h-screen p-0 bg-slate-900'>{children}</div>
   );
 };
 
