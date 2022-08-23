@@ -2,7 +2,7 @@ import '../styles/globals.css';
 import Layout from '../components/layout';
 import AuthProvider from '../auth/auth-provider';
 
-function MyApp({ Component, pageProps }) {
+function App({ Component, pageProps }) {
   return (
     <AuthProvider>
       <Layout>
@@ -12,4 +12,4 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default MyApp;
+export default App;

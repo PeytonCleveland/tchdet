@@ -9,6 +9,12 @@ const menuItems = [
   { text: 'My Profile', link: '/app/profile' },
 ];
 
+const externalLinks = [
+  { type: 'dropdown', text: 'Explore', link: '/explore' },
+  { type: 'link', text: 'Pricing', link: '/pricing' },
+  { type: 'link', text: 'Enterprise', link: '/enterprise' },
+];
+
 const ProfileDropdown = () => {
   let menuRef = useRef(null);
   let dropdownRef = useRef(null);
@@ -113,21 +119,66 @@ const Header = () => {
   return path.includes('/app') ? (
     <header className='h-14 flex justify-between items-center px-5 z-50'>
       <Link href='/app' passHref>
-        <a>Logo</a>
+        <a>
+          <img src='/Logo.svg' alt='logo' width={100} />
+        </a>
       </Link>
 
       <ProfileDropdown />
     </header>
   ) : (
-    <div className='container h-14 flex justify-between items-center z-50'>
-      <div>Logo</div>
-      <Button href='/sign-in' className='ml-4'>
-        Sign In
-      </Button>
-      <Button href='/sign-up' className='ml-4'>
-        Sign Up
-      </Button>
-    </div>
+    <header className='w-screen h-16 flex justify-between items-center z-50 backdrop-blur fixed bg-slate-900/90 top-0 left-0 border-b border-slate-800'>
+      <div className='container flex justify-between items-center'>
+        <div className='flex gap-4 items-center'>
+          <Link href='/' passHref>
+            <a>
+              <img src='/Logo.svg' alt='logo' width={120} />
+            </a>
+          </Link>
+          <div className='flex items-center select-none justify-center bg-slate-400 bg-opacity-20 text-opacity-100 px-2 py-1 text-xs font-semibold text-sky-300 h-fit rounded-full'>
+            Alpha v0.1.6
+          </div>
+          <div className='flex gap-3 items-center ml-8'>
+            {externalLinks.map((item, index) => {
+              return (
+                <Button
+                  key={index}
+                  href={item.link}
+                  variant='text'
+                  color={router.pathname.includes(item.link) ? 'blue' : 'white'}
+                >
+                  {item.text}
+                  {item.type === 'dropdown' && (
+                    <svg
+                      xmlns='http://www.w3.org/2000/svg'
+                      className='h-4 w-4 ml-1'
+                      fill='none'
+                      viewBox='0 0 24 24'
+                      stroke='currentColor'
+                      strokeWidth={1.5}
+                    >
+                      <path
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
+                        d='M19 9l-7 7-7-7'
+                      />
+                    </svg>
+                  )}
+                </Button>
+              );
+            })}
+          </div>
+        </div>
+        <div className='flex gap-6 items-center'>
+          <Button href='/sign-in' className='ml-4' variant='text' color='blue'>
+            Sign In
+          </Button>
+          <Button href='/sign-up' className='ml-4' color='white'>
+            Get Started
+          </Button>
+        </div>
+      </div>
+    </header>
   );
 };
 
