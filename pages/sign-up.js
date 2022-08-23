@@ -38,7 +38,7 @@ const SignUp = () => {
                 Welcome to Tchdet, <br />
                 <span className='relative'>
                   <span className='h-20 pt-2 overflow-x-hidden whitespace-nowrap text-brand-accent'>
-                    This is going to be fun.
+                    This is going to be epic.
                   </span>
                   <span className='cursor absolute -bottom-0 left-0 -top-1 inline-block bg-slate-800 w-[230px] animate-type will-change'></span>
                 </span>

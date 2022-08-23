@@ -7,7 +7,7 @@ const navItems = [
 
 const Sidebar = () => {
   return (
-    <div className='w-60 p-5 flex justify-between flex-col bg-red-600 h-full'>
+    <div className='w-60 p-5 flex justify-between flex-col bg-slate-900 h-full'>
       <div className='flex flex-col'>
         {navItems.map((item, index) => {
           return (

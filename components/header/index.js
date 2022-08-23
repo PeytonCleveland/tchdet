@@ -117,7 +117,7 @@ const Header = () => {
   const path = router.pathname;
 
   return path.includes('/app') ? (
-    <header className='h-14 flex justify-between items-center px-5 z-50'>
+    <header className='w-screen h-16 px-6 flex justify-between items-center z-50 backdrop-blur bg-slate-900 border-b border-slate-800'>
       <Link href='/app' passHref>
         <a>
           <img src='/Logo.svg' alt='logo' width={100} />

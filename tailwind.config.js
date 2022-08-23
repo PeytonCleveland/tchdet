@@ -31,7 +31,7 @@ module.exports = {
           '81%, 84%': { transform: 'translateX(15ch)' },
           '87%, 90%': { transform: 'translateX(16ch)' },
           '93%, 96%': { transform: 'translateX(17ch)' },
-          '98%, 100%': { transform: 'translateX(18ch)' },
+          '98%, 100%': { transform: 'translateX(18.5ch)' },
         },
       },
     },
