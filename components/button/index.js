@@ -11,7 +11,8 @@ const Button = ({ href, onClick, bold, children, color, size, variant }) => {
     'justify-center',
     'tracking-wider',
     'rounded',
-    'font-bold'
+    'font-bold',
+    'whitespace-nowrap'
   );
 
   const filled = classnames(

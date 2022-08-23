@@ -44,7 +44,7 @@ const SignIn = () => {
                   {validEmail ? (
                     <svg
                       xmlns='http://www.w3.org/2000/svg'
-                      className='h-6 w-6 -ml-0.5 text-slate-100'
+                      className='h-6 w-6 -ml-0.5 text-green-400'
                       fill='none'
                       viewBox='0 0 24 24'
                       stroke='currentColor'
@@ -150,7 +150,7 @@ const SignIn = () => {
                         </svg>
                       )}
                     </button>
-                    <Button onClick={() => signInUser()}>Continue</Button>
+                    <Button onClick={() => signInUser()}>Sign In</Button>
                   </div>
                 </div>
               )}
