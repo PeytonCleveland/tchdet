@@ -39,7 +39,7 @@ const SignIn = () => {
           tchdet
         </h1>
       </header>
-      <main className="w-screen h-screen flex flex-col gap-12 justify-center items-center bg-gradient-to-br from-[#141518] to-[#0b0c0e]">
+      <main className="w-screen h-screen flex flex-col gap-8 justify-center items-center bg-gradient-to-br from-[#141518] to-[#0b0c0e]">
         <form className="w-[520px] bg-[#17191b] border border-[#b4edff] drop-shadow-[0_0_8px_rgba(10,200,255,0.25)] rounded-[8px] flex flex-col p-6 gap-4">
           {submitted ? (
             <>
@@ -47,7 +47,7 @@ const SignIn = () => {
                 Check your email
               </h1>
               <p className="text-[#cbcbcb] font-light font-primary">
-                {`We sent a magic link to ${email}. Click on the link to sign in.`}
+                {`We sent a magic link to ${email}. Click on the link to sign in. You may close this tab.`}
               </p>
             </>
           ) : (
