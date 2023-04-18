@@ -1,51 +1,16 @@
-/* ./styles/globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 * {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    
-}
-
-html {
-  scroll-behavior: smooth;
-  font-family: 'Poppins', sans-serif;
-  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-    transition: background-color 5000s ease-in-out 0s;
-    -webkit-text-fill-color: #fff !important;
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: #fff !important;
 }
-
-.cursor::after {
-    display: block;
-    content: '';
-    position: absolute;
-    width: 1px;
-    height: 90%;
-    background-color: #fff;
-    animation: cursor 0.75s linear 7 forwards;
-    will-change: opacity;
-  }
-  
-  @keyframes cursor {
-    0%,
-    40% {
-      opacity: 1;
-    }
-  
-    60%,
-    100% {
-      opacity: 0;
-    }
-  }
-
-
-
-
